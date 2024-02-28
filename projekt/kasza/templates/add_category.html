@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block content %} 
+
+{% if current_user.is_admin %}
+
+<form action="" method="POST">
+    {{ cform.hidden_tag() }}
+
+    <legend class="border-bottom mb-4">Dodaj kategorię</legend>
+
+    <div class="mb-3">
+        {{ cform.name.label(class="form-label") }}
+
+        {% if cform.name.errors %}
+            {{ cform.name(class="form-control is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in cform.name.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ cform.name(class="form-control") }}
+        {% endif %}
+    </div>
+    <div class="pt-2 mb-5">
+        {{ cform.submit(class="btn btn-primary") }}
+    </div>
+</form>
+
+<div>
+        <h4 class="px-3">Kategorie </h4>
+        <table class="table table-borderless cart">
+            {% for category in categories %}
+            <tr>
+                <td class="px-5">{{ category.name }}</td>
+                <td class="px-5">
+                    <a class="btn btn-sm btn-outline-secondary " href="{{url_for('delete_category', category_id=category.id)}}">Usuń</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+</div>
+
+
+
+
+
+{% else %}
+    <h1>Brak uprawnień</h1>
+    <a href="{{url_for('index')}}">Strona główna</a>
+{% endif %}
+
+{% endblock content %}

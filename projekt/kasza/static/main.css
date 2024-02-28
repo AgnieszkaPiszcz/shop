@@ -1,0 +1,14 @@
+.site-header {
+    width:100% !important;
+}
+
+.product_pic {
+    max-height: 217.5px;
+}
+
+.cat-list {
+    max-width: 50%
+}
+.cart{
+    max-width: max-content;
+}

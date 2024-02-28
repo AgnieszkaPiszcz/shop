@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block content %} 
+
+<form action="" method="POST">
+    {{ form.hidden_tag() }}
+
+    <legend class="border-bottom mb-4">Logowanie</legend>
+
+    <div class="mb-3">
+        {{ form.email.label(class="form-label") }}
+
+        {% if form.email.errors %}
+            {{ form.email(class="form-control is-invalid") }}
+            <div class="invalid-feedback">
+                    <span>Podaj poprawny adres email.</span>
+            </div>
+        {% else %}
+            {{ form.email(class="form-control") }}
+        {% endif %}
+    </div>
+    
+    <div class="mb-3">
+        {{ form.password.label(class="form-label") }}
+
+        {% if form.password.errors %}
+            {{ form.password(class="form-control is-invalid") }}
+            <div class="invalid-feedback">
+                    <span>Hasło musi spełniać podane kryteria.</span>
+            </div>
+        {% else %}
+            {{ form.password(class="form-control") }}
+        {% endif %}
+    </div>
+
+    <div class="mb-3 form-check">
+        {{ form.remember_me(class="form-check-input") }}
+        {{ form.remember_me.label(class="form-check-label") }}
+    </div>
+
+    <div class="pt-2 mb-3">
+        {{ form.submit(class="btn btn-primary") }}
+    </div>
+
+
+
+</form>
+
+<div class="border-top pt-3">
+    <small class="text-muted">
+        Nie masz konta? <a href="{{ url_for('register') }}" class="ml-2">Zarejestruj się.</a>
+    </small>
+</div>
+
+
+
+{% endblock content %}

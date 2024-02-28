@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %} 
+
+<h4 class="mb-3">Złożone zamówienia:</h4>
+
+{% for order in orders %}
+
+<div class="mb-3 border-bottom">
+    <h5>{{ order.odate.strftime('%Y-%m-%d') }}</h5>
+    <table class="table table-borderless cart">
+        {% for item in order.order_items %}
+        <tr>
+            <td class="px-4">{{ item.product.name }}</td>
+            <td class="px-4">{{ item.product.price|round(2) }} zł za kg</td>
+            <td class="px-4">{{ item.qty }} kg</td>
+            <td class="px-4">{{ (item.qty * item.product.price)|round(2) }} zł</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="3" class="px-4">Wysyłka</td>
+            <td class="px-4">10.00 zł</td>
+        </tr>
+        <tr class="border-top">
+            <td colspan="3" class="px-4">Razem:</td>
+            <td class="px-4"> {{ (order.sum + 10)|round(2) }} zł</td>
+        </tr>
+    </table>
+    
+</div>
+
+{% endfor %}
+{% endblock content %}

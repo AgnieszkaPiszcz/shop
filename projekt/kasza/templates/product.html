@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block content %} 
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <img class="img-fluid rounded" src="{{ url_for('static', filename = 'product_pics/' + product.image_file) }}" alt="">
+            <div class="card-body">
+                <h4> {{product.name}} </h4>
+                <p class="mb-1">Cena za kg: {{product.price|round(2)}} zł</p>
+                <p>{{ product.description }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h4>Zakupy</h4>
+        <p> {{ product.name }}: {{product.price|round(2)}} zł za kg </p>
+        {% if current_user.is_authenticated %}
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="input-group mb-3">
+                {% if form.qty.errors %}
+                {{ form.qty(class="form-control is-invalid") }}
+                <span class="input-group-text" id="basic-addon1">kg</span>
+                <div class="invalid-feedback">
+                    {% for error in form.qty.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.qty(class="form-control") }}
+                    <span class="input-group-text" id="basic-addon1">kg</span>
+                {% endif %}            
+            </div>
+            <div>
+                {{ form.submit(class="btn btn-outline-primary w-100") }}
+                {% if current_user.is_admin %}
+                    <a class="btn btn-outline-secondary w-100 mt-3" href="{{url_for('edit_product', product_id=product.id)}}">Edytuj produkt</a>
+                    <a class="btn btn-outline-secondary w-100 mt-3" href="{{url_for('delete_product', product_id=product.id)}}">Usuń produkt</a>
+                {% endif %}
+            </div>
+        </form>
+        {%else%}
+        <p>Zakupy dostępne dla zalogowanych użytkowników.</p>
+        {% endif %}
+        
+    
+    </div>
+</div>
+
+
+{% endblock content %}

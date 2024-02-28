@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %} 
+
+<h4>Koszyk </h4>
+    {% if order_items %}
+        <table class="table table-borderless cart">
+            {% for item in order_items %}
+            <tr>
+                <td class="px-4">{{ item.product.name }}</td>
+                <td class="px-4">{{ item.product.price|round(2) }} zł za kg</td>
+                <td class="px-4">{{ item.qty }} kg</td>
+                <td class="px-4">{{ (item.qty * item.product.price)|round(2) }} zł</td>
+                <td class="px-4">
+                    <a class="btn btn-sm btn-outline-secondary " href="{{url_for('remove_from_cart', item_id=item.id)}}">Usuń</a>
+                </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="3" class="px-4">Wysyłka</td>
+                <td class="px-4">10.00 zł</td>
+            </tr>
+            <tr class="border-top">
+                <td colspan="3" class="px-4">Razem:</td>
+                <td class="px-4"> {{ (sum + 10)|round(2) }} zł</td>
+                <td class="px-4">
+                    <a class="btn btn-sm btn-outline-primary " href="{{url_for('place_order', order_id=order.id)}}">Złóż zamówienie</a>
+                </td>
+            </tr>
+        </table>
+    {% else %}
+    <p>Koszyk jest pusty.</p>
+    {% endif %}
+
+{% endblock content %}
