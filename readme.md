@@ -1,20 +1,29 @@
-# Sklep internetowy
+# Shopping websites
 
-# Instalacja
+# Installation
 
-Aby uruchomić stronę należy zainstalować sqlite3, Python3.8 lub wyżej oraz zależności pythonowe:
+To run the website Python3.8 or higher and sqlite3 are required, and python dependencies must be installed:
 
     python3.8 -m pip install -r requirements.txt
 
-Stronę należy uruchomić komendą:
+To run the server use the following command:
 
-    python3.8 run.py
+    python3 run.py
 
-# Funkcjonalności
+# Functionalities
 
-Użytkownik niezalogowany może przeglądać kategorie i produkty oraz skorzystać z formularza kontaktowego w zakładce Kontakt. Po rejestracji oraz logowaniu udostępniona jest funkcja dodawania produktów do koszyka oraz składania zamówień. Po zalogowaniu na konto administracyjne adresem email: admin@admin.com oraz hasłem: AdminGromowladny7! można dodawać, edytować i usuwać produkty oraz kategorie.
+Without logging in, a user can browse categories and products and has access to the contact form in the contact tab. Once registered and logged in, a user can add procuts to cart and place orders. 
+<img title="a title" alt="Alt text" src="pics/Screenshot from 2024-02-29 08-42-14.png">
 
-# Struktura projektu
+<img title="a title" alt="Alt text" src="pics/Screenshot from 2024-02-29 08-42-45.png">
 
-W pliku routes.py znajdują się poszczególne podstrony, models.py zawiera schemat bazy danych a site.db bazę danych, w forms.py są definicje formularzy. Folder templates zawiera pliki html, natomiast folder static pliki css, js oraz zdjęcia.
+<img title="a title" alt="Alt text" src="pics/Screenshot from 2024-02-29 08-42-55.png">
+
+The admin account (email: admin@admin.com, password: AdminGromowladny7!) has permissions to add, edit, and delete products and categories.
+
+<img title="a title" alt="Alt text" src="pics/Screenshot from 2024-02-29 08-43-17.png">
+
+<img title="a title" alt="Alt text" src="pics/Screenshot from 2024-02-29 08-43-26.png">
+
+<img title="a title" alt="Alt text" src="pics/Screenshot from 2024-02-29 08-44-01.png">
 
