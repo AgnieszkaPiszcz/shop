@@ -3,8 +3,8 @@ from flask_wtf.file import FileField, FileAllowed
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField, DecimalField
 from wtforms.fields.core import IntegerField, SelectField
 from wtforms.validators import DataRequired, Length, Email, NumberRange, Regexp, EqualTo, ValidationError, InputRequired
-from kasza.models import Customer, Category, Product
-from kasza import db
+from shop.models import Customer, Category, Product
+from shop import db
 from flask_login import current_user
 
 

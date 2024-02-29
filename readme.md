@@ -12,7 +12,7 @@ Stronę należy uruchomić komendą:
 
 # Funkcjonalności
 
-Użytkownik niezalogowany może przeglądać kategorie i produkty oraz skorzystać z formularza kontaktowego w zakładce Kontakt. Po rejestracji oraz logowaniu udostępniona jest funkcja dodawania produktów do koszyka oraz składania zamówień. Po zalogowaniu na konto administracyjne adresem email: admin@kasza.com oraz hasłem: AdminGromowladny7! można dodawać, edytować i usuwać produkty oraz kategorie.
+Użytkownik niezalogowany może przeglądać kategorie i produkty oraz skorzystać z formularza kontaktowego w zakładce Kontakt. Po rejestracji oraz logowaniu udostępniona jest funkcja dodawania produktów do koszyka oraz składania zamówień. Po zalogowaniu na konto administracyjne adresem email: admin@admin.com oraz hasłem: AdminGromowladny7! można dodawać, edytować i usuwać produkty oraz kategorie.
 
 # Struktura projektu
 

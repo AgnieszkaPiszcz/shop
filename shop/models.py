@@ -1,5 +1,5 @@
 from datetime import datetime
-from kasza import db, login_maganer
+from shop import db, login_maganer
 from flask_login import UserMixin
 
 

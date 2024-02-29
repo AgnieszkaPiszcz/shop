@@ -1,9 +1,9 @@
 import secrets
 import os
 from flask import request, render_template, url_for,flash, redirect, jsonify, make_response
-from kasza import app, db, bcrypt
-from kasza.forms import AddCategoryForm, AddProductForm, EditAccountForm, RegistrationForm, LoginForm, AddProductToCartForm, EditProductForm, ContactForm
-from kasza.models import Customer, Category, Product, Order, OrderItem
+from shop import app, db, bcrypt
+from shop.forms import AddCategoryForm, AddProductForm, EditAccountForm, RegistrationForm, LoginForm, AddProductToCartForm, EditProductForm, ContactForm
+from shop.models import Customer, Category, Product, Order, OrderItem
 from flask_login import login_user, current_user, logout_user, login_required
 from functools import partial
 
@@ -13,7 +13,7 @@ from functools import partial
 def index():
     product_category = request.args.get('category_id')
     if product_category:
-        products = Product.query.join(Product.category, aliased=True).filter_by(id=product_category) 
+        products = Product.query.join(Product.category).filter_by(id=product_category) 
     else:
         products = Product.query.all()
     return render_template('index.html', products=products, categories = Category.query.all())
