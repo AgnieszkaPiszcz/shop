@@ -1,5 +1,7 @@
 ## Shopping website
 
+This is a repository of a shopping website created using Python and Flask, and Bootstrap on the frontend.
+
 # Installation
 
 To run the website, Python3.8 or higher and sqlite3 are required, and python dependencies must be installed:
