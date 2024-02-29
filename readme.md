@@ -1,8 +1,8 @@
-# Shopping websites
+## Shopping website
 
 # Installation
 
-To run the website Python3.8 or higher and sqlite3 are required, and python dependencies must be installed:
+To run the website, Python3.8 or higher and sqlite3 are required, and python dependencies must be installed:
 
     python3.8 -m pip install -r requirements.txt
 
